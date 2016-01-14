@@ -8,6 +8,18 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="static/img/favicon.png">-->
 
+      <!--Autocomplete-->
+
+      <!-- JS file -->
+    <script src="static/maps/jquery.easy-autocomplete.min.js"></script>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="static/maps/easy-autocomplete.min.css">
+
+    <!-- Additional CSS Themes file - not required-->
+    <link rel="stylesheet" href="static/maps/easy-autocomplete.themes.min.css">
+     <!--Autocomplete-->
+
     <title>FLATTY - Free Bootstrap 3 Landing Page</title>
 
     <!-- Bootstrap core CSS -->
@@ -43,7 +55,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Already a member?</a></li>
+            <!--<li><a href="#">Already a member?</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,11 +75,13 @@
 					    <input type="email" class="form-control" id="SearchHave" placeholder="Enter the item you have" oninvalid="setCustomValidity(' ')">
 					  </div>
                         <p></p>
-					  <button type="email"  class="btn btn-warning btn-lg" onclick="addItems()" >GO!</button>
+					  <button type="email" class="btn btn-warning btn-lg" onclick="addItems()" >GO!</button>
+                        <p></p>
+                        <div id="inputAlerts"></div>
 					</form>					
 				</div><!-- /col-lg-6 -->
 				<div class="col-lg-6">
-					<img class="img-responsive" src="static/img/ipad-hand.png" alt="">
+					<img class="img-responsive" src="static/img/ipad-hand copy1.png" alt="">
 				</div><!-- /col-lg-6 -->
 				
 			</div><!-- /row -->
@@ -235,5 +249,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <div class="modal"><!-- Place at bottom of page --></div>
   </body>
 </html>

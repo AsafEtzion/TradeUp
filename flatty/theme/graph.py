@@ -63,8 +63,8 @@ def create_items_lists(data):
     seekingList = []
     offeringList = []
     for i in range(len(data)):
-        offeringList.append(data[i][5])
-        seekingList.append(data[i][6])
+        offeringList.append(data[i][6])
+        seekingList.append(data[i][5])
     return seekingList, offeringList
 
 
@@ -80,37 +80,50 @@ def parse_and_init(csv_file):
 
     return G, seekingList, offeringList
 
-def find_index_matches(word, lst):
+def find_index_matches_in_seeking(word, lst):
+    indexes = []
+    for i in range(len(lst)):
+        if word in lst[i]:
+            indexes.append(i)
+    return indexes
+
+def find_index_matches_in_offering(word, lst):
     indexes = []
     for i in range(len(lst)):
         if word == lst[i]:
             indexes.append(i)
     return indexes
 
+
 # first checks if the items exists and then searches for the shortest path
 def search_match(graph, seekingList, offeringList, seeking_product, offering_product):
-    seekingIdxOccurrence = find_index_matches(seeking_product, seekingList)
+    seekingIdxOccurrence = find_index_matches_in_seeking(seeking_product, seekingList)
     if len(seekingIdxOccurrence) == 0:
         return "noSeek"
 
-    offeringIdxOccurrence = find_index_matches(offering_product, offeringList)
+    offeringIdxOccurrence = find_index_matches_in_offering(offering_product, offeringList)
     if len(offeringIdxOccurrence) == 0:
         return "noHave"
 
-    try:
-        path = nx.astar_path(graph, seekingIdxOccurrence[0], offeringIdxOccurrence[0])  # TODO add more A* iterations
-        items_list = []
-        url_list = []
-        for node in path:
+    paths = []
+    for idx_offer in offeringIdxOccurrence:
+        for idx_seek in seekingIdxOccurrence:
+            try:
+                paths.append(nx.astar_path(graph, offeringIdxOccurrence[0],
+                                           seekingIdxOccurrence[0]))
+            except nx.NetworkXNoPath:
+                pass
+    items_list = []
+    url_list = []
+    if len(paths) != 0:
+        min(paths)
+        for node in min(paths):
             items_list.append(graph.node[node]["Offering"])
             url_list.append(graph.node[node]["URL"])
         return {"items": items_list, "link": url_list}
-    except nx.NetworkXNoPath:
+    else:
         return "noPath"
 
 
-# G, seekingList, offeringList = parse_and_init('Products List for demo.csv')
-
 # nx.write_graphml(G, "plot1.graphml")
 
-# print(nx.astar_path(G, 6, 2, category_heuristic))

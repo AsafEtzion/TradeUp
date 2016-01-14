@@ -128,7 +128,7 @@ def make_app():
 
 if __name__ == "__main__":
     #db = pickle.load(open('full_dump.p','rb'))
-    G, seekingList, offeringList = graph.parse_and_init('csv non final DB.csv')
+    G, seekingList, offeringList = graph.parse_and_init('final DB.csv')
     app = make_app()
     app.listen(80)
     tornado.ioloop.IOLoop.current().start()
