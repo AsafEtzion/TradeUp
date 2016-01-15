@@ -8,16 +8,9 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="static/img/favicon.png">-->
 
-      <!--Autocomplete-->
-
-      <!-- JS file -->
-    <script src="static/maps/jquery.easy-autocomplete.min.js"></script>
-
-    <!-- CSS file -->
-    <link rel="stylesheet" href="static/maps/easy-autocomplete.min.css">
-
-    <!-- Additional CSS Themes file - not required-->
-    <link rel="stylesheet" href="static/maps/easy-autocomplete.themes.min.css">
+     <!--Autocomplete-->
+       <link rel="stylesheet" href="static/maps/awesomplete.css" />
+      <script src="static/maps/awesomplete.js" async></script>
      <!--Autocomplete-->
 
     <title>FLATTY - Free Bootstrap 3 Landing Page</title>
@@ -70,12 +63,92 @@
                     <p></p>
 					<form class="form-inline" role="form">
 					  <div class="form-group">
-                        <input type="email" class="form-control" id="SearchSeek" placeholder="Enter the item you seek" oninvalid="setCustomValidity(' ')">
+                       <!-- <input type="email" class="form-control" id="SearchSeek" placeholder="Enter the item you seek" oninvalid="setCustomValidity(' ')">-->
+                        <input class="awesomeplete" list="seeking" size = "33" id="SearchSeek" placeholder="Enter the item you seek" oninvalid="setCustomValidity(' ')">
                           <p></p>
-					    <input type="email" class="form-control" id="SearchHave" placeholder="Enter the item you have" oninvalid="setCustomValidity(' ')">
+                            <datalist id="seeking">
+	                        <option>musical instruments</option>
+	                        <option>iphone</option>
+	                        <option>treadmill</option>
+                            <option>coins</option>
+                            <option>pc</option>
+                            <option>fish tank</option>
+                            <option>guitar amp</option>
+                            <option>generator</option>
+	                        <option>guitars</option>
+	                        <option>flatscreen tv</option>
+                            <option>watch</option>
+                            <option>shoes</option>
+                            <option>paintball gun</option>
+                            <option>piano</option>
+                            <option>golf clubs</option>
+	                        <option>electric guitar</option>
+	                        <option>magazines</option>
+                            <option>motorcycle</option>
+                            <option>computer</option>
+                            <option>truck</option>
+                            <option>wii</option>
+                            <option>bicycle</option>
+	                        <option>xbox 360</option>
+	                        <option>tv</option>
+                            <option>baby clothes</option>
+                            <option>boat</option>
+                            <option>laptop</option>
+                            <option>video games</option>
+                            <option>dvds</option>
+                            <option>digital camera</option>
+	                        <option>book</option>
+	                        <option>jewelry</option>
+                            <option>car</option>
+                            <option>tools</option>
+                            <option>antiques</option>
+                            <option>clothes</option>
+                            <option>furnitures</option>
+                            </datalist>
+                          <p></p>
+					   <!--<input type="email" class="form-control" id="SearchHave" placeholder="Enter the item you have" oninvalid="setCustomValidity(' ')">-->
+                       <input class="awesomeplete" list="offering" size = "33" id="SearchHave" placeholder="Enter the item you have" oninvalid="setCustomValidity(' ')">
+                          <datalist id="offering">
+	                        <option>books</option>
+	                        <option>motorcycle</option>
+	                        <option>furniture</option>
+                            <option>truck</option>
+                            <option>bicycle</option>
+                            <option>rv</option>
+                            <option>digital camera</option>
+                            <option>laptop</option>
+	                        <option>boat</option>
+	                        <option>clothes</option>
+                            <option>iphone</option>
+                            <option>phone</option>
+                            <option>ps3</option>
+                            <option>metal detector</option>
+                            <option>suv</option>
+	                        <option>guitar</option>
+	                        <option>pc</option>
+                            <option>video games</option>
+                            <option>antiques</option>
+                            <option>flatscreen tv</option>
+	                        <option>dvds</option>
+	                        <option>television</option>
+                            <option>exercise equipment</option>
+                            <option>treadmill</option>
+                            <option>golf cart</option>
+                            <option>watch</option>
+                            <option>acoustic guitar</option>
+	                        <option>home</option>
+	                        <option>motorbike</option>
+                            <option>automobile</option>
+                            <option>atv</option>
+                            <option>jewelry</option>
+                            <option>ipod</option>
+                            </datalist>
+                          
+                            <p></p>
+                            <input type="email" class="form-control" id="SearchHave2" value="Enter your country" oninvalid="setCustomValidity(' ')">
 					  </div>
                         <p></p>
-					  <button type="email" class="btn btn-warning btn-lg" onclick="addItems()" >GO!</button>
+                            <button type="email" class="btn btn-warning btn-lg" onclick="addItems()" >GO!</button>
                         <p></p>
                         <div id="inputAlerts"></div>
 					</form>					
